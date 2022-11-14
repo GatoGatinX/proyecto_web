@@ -383,3 +383,13 @@ footer{
 		width: 70%;
 	}
 }
+
+.boton{
+	background-color: #600fbf;
+	padding: 10px;
+	font-size: 20px;
+	color: aliceblue;
+	border-radius: 30px;
+	font-style: italic;
+	margin-bottom: 30px;
+}
