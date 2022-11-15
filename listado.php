@@ -20,6 +20,7 @@
 	border-radius: 30px;
 	font-style: italic;
 	margin-bottom: 30px;
+  cursor: pointer;
 }
 </style>
 <?php
