@@ -12,6 +12,15 @@
     padding: 2px;
     text-align: center;
   }
+  .boton{
+	background-color: #600fbf;
+	padding: 10px;
+	font-size: 20px;
+	color: aliceblue;
+	border-radius: 30px;
+	font-style: italic;
+	margin-bottom: 30px;
+}
 </style>
 <?php
 //validamos datos del servidor
@@ -48,13 +57,13 @@ if(!$connection)
         echo "<h3>Tabla seleccionada:</h3>" ;
         }
         //insertamos datos de registro al mysql xamp, indicando nombre de la tabla y sus atributos
-        $instruccion_SQL = "SELECT nombre,Precio,Cantidad FROM productos";
+        $instruccion_SQL = "SELECT nombre_Producto,precio FROM producto";
 
                             
         $resultado = mysqli_query($connection,$instruccion_SQL);
 
         //$consulta = "SELECT * FROM tabla where id ='2'"; si queremos que nos muestre solo un registro en especifivo de ID
-        $consulta = "SELECT * FROM productos";
+        $consulta = "SELECT * FROM producto";
         
 $result = mysqli_query($connection,$consulta);
 if(!$result) 
@@ -66,21 +75,25 @@ echo "<table>";
 echo "<tr>";
 echo "<th><h1>Nombre</th></h1>";
 echo "<th><h1>Precio</th></h1>";
-echo "<th><h1>Cantidad<br>Disponible</th></h1>";
 echo "</tr>";
 
 while ($colum = mysqli_fetch_array($result))
 {
   echo "<tr>";
-  echo "<td><h2>" . $colum['nombre']. "</td></h2>";
-  echo "<td><h2>" . $colum['Precio'] . "</td></h2>";
-  echo "<td><h2>" . $colum['Cantidad'] . "</td></h2>";
+  echo "<td><h2>" . $colum['nombre_Producto']."</td></h2>";
+  echo "<td><h2>" . $colum['precio'] . "</td></h2>";
   echo "</tr>";
 }
 echo "</table>";
 echo "<center/>";
+echo "<br><br>";
 
 mysqli_close( $connection );
     //echo "Fuera " ;
-    echo'<a href="index.html"> Volver Atrás</a>';
+    echo'<form action="index.html">
+    <center>
+      <input type="submit" name="index" class="boton" id="index"value="Pagina inicial"/>
+    </center>
+  </form>';
+    
 ?>
